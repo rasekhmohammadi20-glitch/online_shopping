@@ -66,6 +66,7 @@ nav a:hover {
     border-bottom-color: #ffd700;
     transform: translateY(-2px);
 }
+
 /* ==========================
    HERO SECTION
    ========================== */
@@ -127,6 +128,7 @@ nav a:hover {
     box-shadow: 0 10px 35px rgba(255, 152, 0, 0.6);
     background: linear-gradient(135deg, #ffa726, #ef6c00);
 }
+
 /* ==========================
    SECTION TITLES
    ========================== */
