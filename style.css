@@ -1,516 +1,468 @@
 /* ==========================
-   RESET & BASE
-   ========================== */
+   تنظیمات پایه و متغیرها
+========================== */
+:root {
+    --primary: #2c3e50;
+    --secondary: #e74c3c;
+    --accent: #f39c12;
+    --light: #ecf0f1;
+    --dark: #1a252f;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.2);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    direction: rtl;
-    background: #f0f4f8;
-    color: #1a1a2e;
-    line-height: 1.8;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    padding-top: 80px;
-}
-
 html {
     scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Tahoma', 'Segoe UI', 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: var(--dark);
+    line-height: 1.8;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
 /* ==========================
-   HEADER / NAVBAR
-   ========================== */
+   هدر و منوی بالا
+========================== */
 header {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #0d6efd, #0a58ca);
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 15px 8%;
-    z-index: 999;
-    box-shadow: 0 4px 20px rgba(13, 110, 253, 0.3);
-    transition: all 0.3s ease;
+    justify-content: space-between;
+    background: linear-gradient(135deg, var(--primary), var(--dark));
+    color: var(--white);
+    padding: 15px 40px;
+    position: var(--light);
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+    flex-wrap: wrap;
+    gap: 15px;
+    
 }
 
-.logo {
-    color: #fff;
-    font-size: 28px;
+header .logo {
+    margin-left: auto;
+    font-size: 1.6rem;
     font-weight: bold;
-    letter-spacing: 1px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: var(--accent);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.logo::before {
-    content: "🛒 ";
+header section img {
+    
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent);
+    transition: var(--transition);
 }
 
-nav a {
-    color: #ffffffb3;
+header section img:hover {
+    transform: scale(1.1) rotate(5deg);
+    
+}
+
+header nav {
+   
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+header nav a {
+    
+    color: var(--white);
     text-decoration: none;
-    margin-right: 25px;
-    font-size: 17px;
-    font-weight: 500;
-    transition: 0.3s ease;
-    padding: 8px 0;
-    border-bottom: 3px solid transparent;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    position: relative;
 }
 
-nav a:hover {
-    color: #ffd700;
-    border-bottom-color: #ffd700;
-    transform: translateY(-2px);
+header nav a:hover {
+    
+    background-color: var(--accent);
+    color: var(--dark);
+    transform: translateY(-3px);
 }
 
 /* ==========================
-   HERO SECTION
-   ========================== */
+   بخش Hero (صفحه اصلی)
+========================== */
 .hero {
-    height: 100vh;
+    
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.7)),
-       url("images/صفحه\ اصلی.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+                url('image/من.png') center/cover no-repeat;
+    min-height: 90vh;
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     text-align: center;
-    color: rgba(255, 255, 255, 0.995);
-    margin-top: -80px;
+    color: var(--white);
+    padding: 20px;
+    position: relative;
 }
 
-.overlay {
-    width: 85%;
-    max-width: 900px;
-    animation: fadeInUp 1.2s ease;
+.hero .overlay {
+    
+    max-width: 800px;
+    animation: fadeInUp 1s ease;
 }
 
-.overlay h1 {
-    font-size: 60px;
+.hero h1 {
+    
+    font-size: 3rem;
     margin-bottom: 20px;
-    font-weight: 800;
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+    color: var(--accent);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
 }
 
-.overlay h1::after {
-    content: "✨";
-    margin-right: 15px;
-}
-
-.overlay p {
-    font-size: 24px;
+.hero p {
+    font-size: 1.3rem;
     margin-bottom: 35px;
-    opacity: 0.95;
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+    line-height: 2;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn {
-    background: linear-gradient(135deg, #ff9800, #f57c00);
-    color: rgba(255, 255, 255, 0.963);
-    text-decoration: none;
-    padding: 16px 45px;
-    border-radius: 50px;
-    font-size: 20px;
-    font-weight: 600;
     display: inline-block;
-    transition: 0.4s ease;
-    box-shadow: 0 6px 25px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--white);
+    padding: 14px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: var(--transition);
+    box-shadow: 0 5px 20px rgba(231, 76, 60, 0.4);
 }
 
 .btn:hover {
-    transform: translateY(-4px) scale(1.03);
-    box-shadow: 0 10px 35px rgba(255, 152, 0, 0.6);
-    background: linear-gradient(135deg, #ffa726, #ef6c00);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 30px rgba(231, 76, 60, 0.6);
 }
 
 /* ==========================
-   SECTION TITLES
-   ========================== */
+   تیتر بخش‌ها
+========================== */
+section h2,
 .title {
     text-align: center;
-    font-size: 38px;
-    margin-bottom: 50px;
-    color: #1a1a2e;
+    font-size: 2.2rem;
+    color: var(--primary);
+    margin-bottom: 15px;
     position: relative;
     padding-bottom: 15px;
 }
 
+section h2::after,
 .title::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     right: 50%;
     transform: translateX(50%);
     width: 80px;
     height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #ff9800);
-    border-radius: 4px;
+    background: linear-gradient(90deg, var(--secondary), var(--accent));
+    border-radius: 5px;
+}
+
+section > h3 {
+    text-align: center;
+    color: #7f8c8d;
+    font-weight: normal;
+    margin-bottom: 40px;
+    font-size: 1.2rem;
 }
 
 /* ==========================
-   CATEGORY
-   ========================== */
+   بخش دسته‌بندی
+========================== */
 .category {
-    padding: 80px 8% 60px;
-    background: #ffffff;
+    padding: 80px 40px;
+    background-color: var(--white);
 }
 
-.category h2 {
-    text-align: center;
-    font-size: 38px;
-    margin-bottom: 50px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.category h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #ff9800);
-    border-radius: 4px;
-}
-
-.category-box {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
-}
-
-.cat {
-    background: #f8f9fa;
-    border-radius: 18px;
-    padding: 25px 15px;
-    text-align: center;
-    transition: 0.4s ease;
-    cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
-}
-
-.cat:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 15px 40px rgba(13, 110, 253, 0.15);
-}
-
-.cat img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 14px;
-    transition: 0.4s ease;
-}
-
-.cat:hover img {
-    transform: scale(1.03);
-}
-
-.cat h3 {
-    margin-top: 18px;
-    font-size: 22px;
-    color: #0d6efd;
-}
-
-/* ==========================
-   PRODUCTS
-   ========================== */
-#products {
-    padding: 80px 8% 60px;
-    background: #f0f4f8;
-}
-
-.products {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 35px;
-}
-
-.card {
-    background: #ffffff;
-    border-radius: 20px;
-    padding: 20px 20px 30px;
-    text-align: center;
-    transition: 0.4s ease;
-    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.07);
-}
-
-.card:hover {
-    transform: translateY(-12px);
-    box-shadow: 0 20px 50px rgba(13, 110, 253, 0.15);
-}
-
-.card img {
-    width: 100%;
-    height: 260px;
-    object-fit: cover;
-    border-radius: 14px;
-    transition: 0.4s ease;
-}
-
-.card:hover img {
-    transform: scale(1.02);
-}
-
-.card h3 {
-    font-size: 22px;
-    margin: 18px 0 8px;
-    color: #1a1a2e;
-}
-
-.card p {
-    font-size: 20px;
-    color: #ff6f00;
-    font-weight: 700;
-    margin-bottom: 18px;
-}
-
-.buy {
-    background: linear-gradient(135deg, #0d6efd, #0a58ca);
-    color: rgb(255, 255, 255);
-    text-decoration: none;
-    padding: 12px 35px;
-    border-radius: 50px;
-    font-weight: 600;
-    display: inline-block;
-    transition: 0.4s ease;
-    box-shadow: 0 4px 20px rgba(13, 110, 253, 0.3);
-}
-
-.buy:hover {
-    transform: translateY(-3px) scale(1.03);
-    box-shadow: 0 8px 30px rgba(13, 110, 253, 0.5);
-    background: linear-gradient(135deg, #1a73e8, #0d47a1);
-}
-
-/* ==========================
-   OFFER
-   ========================== */
-.offer {
-    padding: 80px 8% 60px;
-    background: linear-gradient(135deg, #0d6efd, #0a58ca);
-    color: #ffffff;
-}
-
-.offer .title {
-    color: #ffffff;
-}
-
-.offer .title::after {
-    background: #ffd700;
-}
-
+.category-box,
+.Gallery-box,
+.products,
 .offer-box {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
 }
 
-.offer-card {
-    background: rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding: 35px 25px;
+.cat,
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
     text-align: center;
-    transition: 0.4s ease;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding-bottom: 20px;
+    border: 1px solid #eee;
 }
 
-.offer-card:hover {
-    transform: translateY(-8px);
-    background: rgba(255, 255, 255, 0.22);
+.cat:hover,
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-hover);
 }
 
-.offer-card h3 {
-    font-size: 30px;
-    color: #ffd700;
-    margin-bottom: 12px;
+.cat img,
+.card img {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    transition: var(--transition);
 }
 
-.offer-card p {
-    font-size: 18px;
-    opacity: 0.95;
+.cat:hover img,
+.card:hover img {
+    transform: scale(1.08);
+}
+
+.cat h3,
+.card h3 {
+    color: var(--primary);
+    margin: 18px 10px 10px;
+    font-size: 1.25rem;
+}
+
+.cat p,
+.card p {
+    color: var(--secondary);
+    font-weight: bold;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.buy {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary), var(--dark));
+    color: var(--white);
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.buy:hover {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
 }
 
 /* ==========================
-   ABOUT
-   ========================== */
-.about {
-    padding: 80px 8% 60px;
+   بخش گالری
+========================== */
+.Gallery {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #f5f7fa, #e8ecf1);
+}
+
+/* ==========================
+   بخش محصولات جدید
+========================== */
+#products {
+    padding: 80px 40px;
+    background-color: var(--white);
+}
+
+/* ==========================
+   بخش تخفیف‌ها
+========================== */
+.offer {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, var(--primary), var(--dark));
+    color: var(--white);
+}
+
+.offer h2,
+.offer .title {
+    color: var(--white);
+}
+
+.offer-box {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.offer-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(243, 156, 18, 0.5);
+    border-radius: var(--radius);
+    padding: 35px 25px;
     text-align: center;
-    background: #ffffff;
+    transition: var(--transition);
 }
 
-.about h2 {
-    font-size: 38px;
-    margin-bottom: 25px;
-    position: relative;
-    padding-bottom: 15px;
-    display: inline-block;
+.offer-card:hover {
+    background: rgba(243, 156, 18, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(243, 156, 18, 0.3);
 }
 
-.about h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #ff9800);
-    border-radius: 4px;
+.offer-card h3 {
+    font-size: 2rem;
+    color: var(--accent);
+    margin-bottom: 15px;
 }
 
-.about p {
-    max-width: 750px;
-    margin: 0 auto;
-    font-size: 20px;
-    color: #444;
+.offer-card p {
+    font-size: 1.05rem;
     line-height: 2;
 }
 
 /* ==========================
-   CONTACT
-   ========================== */
-.contact {
-    padding: 80px 8% 60px;
-    background: #f0f4f8;
-}
-
-.contact h2 {
+   درباره ما
+========================== */
+.about {
+    padding: 80px 40px;
+    background-color: #f8f9fa;
     text-align: center;
-    font-size: 38px;
-    margin-bottom: 50px;
-    position: relative;
-    padding-bottom: 15px;
 }
 
-.contact h2::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    transform: translateX(50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(90deg, #0d6efd, #ff9800);
-    border-radius: 4px;
+.about p {
+    max-width: 800px;
+    margin: 30px auto 0;
+    font-size: 1.15rem;
+    line-height: 2.2;
+    color: #555;
+    background: var(--white);
+    padding: 30px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-right: 5px solid var(--accent);
+}
+
+/* ==========================
+   تماس با ما
+========================== */
+.contact {
+    padding: 80px 40px;
+    background-color: var(--white);
 }
 
 .contact-box {
     max-width: 700px;
     margin: 0 auto;
-    background: #ffffff;
-    padding: 45px 40px;
-    border-radius: 24px;
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.07);
+    background: linear-gradient(135deg, #f8f9fa, #e8ecf1);
+    padding: 40px;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
 .contact-box p {
-    font-size: 18px;
-    margin-bottom: 12px;
+    font-size: 1.05rem;
+    margin-bottom: 15px;
+    padding: 12px 20px;
+    background: var(--white);
+    border-radius: 8px;
+    border-right: 4px solid var(--accent);
 }
 
-.contact-box p strong {
-    color: #0d6efd;
+.contact-box strong {
+    color: var(--primary);
+    margin-left: 10px;
 }
 
 .contact-box form {
-    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 25px;
 }
 
-.contact-box form input,
-.contact-box form textarea {
-    width: 100%;
+.contact-box input,
+.contact-box textarea {
     padding: 14px 18px;
-    margin-bottom: 18px;
-    border: 2px solid #e8edf2;
-    border-radius: 12px;
-    font-size: 16px;
-    transition: 0.3s ease;
-    background: #fafbfc;
+    border: 2px solid #ddd;
+    border-radius: 8px;
     font-family: inherit;
+    font-size: 1rem;
+    transition: var(--transition);
+    background: var(--white);
 }
 
-.contact-box form input:focus,
-.contact-box form textarea:focus {
-    border-color: #0d6efd;
+.contact-box input:focus,
+.contact-box textarea:focus {
     outline: none;
-    box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.12);
-    background: #ffffff;
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.2);
 }
 
-.contact-box form textarea {
-    height: 140px;
+.contact-box textarea {
+    min-height: 130px;
     resize: vertical;
 }
 
-.contact-box form button {
-    width: 100%;
-    padding: 16px;
-    background: linear-gradient(135deg, #ff9800, #f57c00);
-    color: #f8f8f8;
+.contact-box button {
+    background: linear-gradient(135deg, var(--secondary), var(--accent));
+    color: var(--white);
+    padding: 14px;
     border: none;
-    border-radius: 12px;
-    font-size: 20px;
-    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
-    transition: 0.4s ease;
-    box-shadow: 0 6px 25px rgba(255, 152, 0, 0.3);
+    transition: var(--transition);
+    font-family: inherit;
 }
 
-.contact-box form button:hover {
+.contact-box button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 10px 40px rgba(255, 152, 0, 0.5);
-    background: linear-gradient(135deg, #ffa726, #ef6c00);
+    box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
 }
 
 /* ==========================
-   FOOTER
-   ========================== */
+   فوتر
+========================== */
 footer {
-    background: #0d1117;
-    color: #eff1f4;
-    padding: 50px 8% 30px;
+    background: linear-gradient(135deg, var(--dark), var(--primary));
+    color: var(--white);
+    padding: 40px 20px;
     text-align: center;
 }
 
 .footer-content h3 {
-    font-size: 28px;
-    color: #fffffffe;
-    margin-bottom: 10px;
-}
-
-.footer-content h3::before {
-    content: "🛒 ";
+    color: var(--accent);
+    font-size: 1.6rem;
+    margin-bottom: 15px;
 }
 
 .footer-content p {
     margin-bottom: 8px;
-    font-size: 16px;
-}
-
-.footer-content p:last-child {
-    margin-top: 25px;
-    font-size: 14px;
-    opacity: 0.6;
+    opacity: 0.9;
 }
 
 /* ==========================
-   ANIMATIONS
-   ========================== */
+   انیمیشن‌ها
+========================== */
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(40px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -519,113 +471,210 @@ footer {
 }
 
 /* ==========================
-   RESPONSIVE
-   ========================== */
+   واکنش‌گرایی (Responsive)
+========================== */
 @media (max-width: 992px) {
-    .overlay h1 {
-        font-size: 44px;
+    header {
+        padding: 15px 20px;
     }
 
-    .overlay p {
-        font-size: 20px;
+    header .logo {
+        font-size: 1.3rem;
+    }
+
+    .hero h1 {
+        font-size: 2.3rem;
+    }
+
+    .hero p {
+        font-size: 1.1rem;
     }
 }
 
 @media (max-width: 768px) {
-    body {
-        padding-top: 70px;
-    }
-
     header {
         flex-direction: column;
-        padding: 12px 5%;
+        text-align: center;
+        gap: 10px;
     }
 
-    .logo {
-        font-size: 24px;
-        margin-bottom: 10px;
+    header nav {
+        justify-content: center;
     }
 
-    nav a {
-        margin: 0 10px;
-        font-size: 14px;
+    header nav a {
+        font-size: 0.85rem;
+        padding: 6px 12px;
     }
 
     .hero {
-        margin-top: -70px;
+        min-height: 70vh;
     }
 
-    .overlay h1 {
-        font-size: 32px;
+    .hero h1 {
+        font-size: 1.8rem;
     }
 
-    .overlay p {
-        font-size: 17px;
+    .hero p {
+        font-size: 1rem;
     }
 
     .btn {
-        padding: 14px 30px;
-        font-size: 17px;
+        padding: 12px 30px;
+        font-size: 1rem;
     }
 
-    .title,
-    .category h2,
-    .about h2,
-    .contact h2 {
-        font-size: 28px;
+    section h2,
+    .title {
+        font-size: 1.7rem;
     }
 
-    .category-box {
-        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-        gap: 18px;
+    .category,
+    .Gallery,
+    #products,
+    .offer,
+    .about,
+    .contact {
+        padding: 50px 20px;
     }
 
-    .cat img {
-        height: 150px;
-    }
-
-    .products {
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    .category-box,
+    .Gallery-box,
+    .products,
+    .offer-box {
+        grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .card img {
-        height: 200px;
-    }
-
-    .offer-box {
-        grid-template-columns: 1fr;
-    }
-
     .contact-box {
-        padding: 30px 20px;
+        padding: 25px 20px;
     }
 }
 
 @media (max-width: 480px) {
-    .overlay h1 {
-        font-size: 26px;
+    header nav {
+        gap: 5px;
     }
 
-    .overlay p {
-        font-size: 15px;
+    header nav a {
+        font-size: 0.75rem;
+        padding: 5px 8px;
     }
 
-    .btn {
-        padding: 12px 25px;
-        font-size: 15px;
+    header section img {
+        width: 45px;
+        height: 45px;
     }
 
-    nav a {
-        font-size: 12px;
-        margin: 0 6px;
+    .hero h1 {
+        font-size: 1.4rem;
     }
 
-    .products {
-        grid-template-columns: 1fr;
+    .hero p {
+        font-size: 0.9rem;
     }
 
-    .category-box {
-        grid-template-columns: 1fr 1fr;
+    .cat img,
+    .card img {
+        height: 200px;
+    }
+
+    .offer-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================
+   اسکرول‌بار سفارشی
+========================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary), var(--accent));
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+/* ==========================
+   آیکون‌های شبکه‌های اجتماعی
+========================== */
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 24px;
+    border-radius: 50px;
+    text-decoration: none;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* واتساپ - رنگ سبز */
+.social-btn.whatsapp {
+    background: linear-gradient(135deg, #25D366, #128C7E);
+}
+
+.social-btn.whatsapp:hover {
+    background: linear-gradient(135deg, #128C7E, #075E54);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
+}
+
+/* فیسبوک - رنگ آبی */
+.social-btn.facebook {
+    background: linear-gradient(135deg, #1877F2, #0d5bbd);
+}
+
+.social-btn.facebook:hover {
+    background: linear-gradient(135deg, #0d5bbd, #003d82);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(24, 119, 242, 0.5);
+}
+
+.social-btn svg {
+    transition: var(--transition);
+}
+
+.social-btn:hover svg {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.copyright {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-size: 0.95rem;
+    opacity: 0.85;
+}
+
+/* واکنش‌گرایی موبایل */
+@media (max-width: 480px) {
+    .social-btn {
+        padding: 10px 18px;
+        font-size: 0.9rem;
+    }
+
+    .social-btn svg {
+        width: 22px;
+        height: 22px;
     }
 }
